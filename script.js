@@ -40,3 +40,24 @@ const setGame = () => {
         board.push(row)
     }
 }
+
+//setting board to colors if game not over
+const setColor = () => {
+    if (endGame){
+        return
+    }
+
+    //splitting id='0-0' to row, col or [0, 0]
+    let coordinates = this.id.split('-');
+    let row = parseInt(coordinates[0])
+    let col = parseInt(coordinates[1])
+
+    board[row][col] = curPlay;
+    let tile = this;
+    if (curPlay == playerRed) {
+        tile.classList.add('red');
+        // curPlay = yelPlay;
+    } else {
+        tile.classList.add('yellow')
+    }
+}
