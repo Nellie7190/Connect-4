@@ -13,11 +13,13 @@ const columns = 7;
 
 // Game setup on load
 window.onload = function() {
+    console.log('start of game!')
     setGame();
 }
 
 //populate tiles on board
 const setGame = () => {
+    console.log('game has begun')
     board = [];
     
     //Goes through the entire board by row, then col
@@ -34,7 +36,8 @@ const setGame = () => {
             tile.id = rowId.toString()+ "-" + colId.toString();
             //Adding a class of 'tile' to each tile
             tile.classList.add('tile');
-            document.getElementById('board').append(tile)
+            tile.addEventListener('click', setColor);
+            document.getElementById('board').append(tile);
         }
         
         board.push(row)
@@ -42,22 +45,25 @@ const setGame = () => {
 }
 
 //setting board to colors if game not over
-const setColor = () => {
+function setColor() {
     if (endGame){
-        return
+        console.log('game over!!!');
+        return;
     }
 
     //splitting id='0-0' to row, col or [0, 0]
+    console.log(this.id)
     let coordinates = this.id.split('-');
-    let row = parseInt(coordinates[0])
-    let col = parseInt(coordinates[1])
+    let row = parseInt(coordinates[0]);
+    let col = parseInt(coordinates[1]);
 
     board[row][col] = curPlay;
     let tile = this;
-    if (curPlay == playerRed) {
+    if (curPlay == redPlay) {
         tile.classList.add('red');
-        // curPlay = yelPlay;
+        curPlay = yelPlay;
     } else {
-        tile.classList.add('yellow')
+        tile.classList.add('yellow');
+        curPlay = redPlay
     }
 }
