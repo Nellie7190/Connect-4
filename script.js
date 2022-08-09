@@ -11,6 +11,9 @@ let board;
 const rows = 6;
 const columns = 7;
 
+//Lowest rows in columns
+let bottomRow;
+
 // Game setup on load
 window.onload = function() {
     console.log('start of game!')
@@ -21,6 +24,7 @@ window.onload = function() {
 const setGame = () => {
     console.log('game has begun')
     board = [];
+    bottomRow = [5, 5, 5, 5, 5, 5, 5]
     
     //Goes through the entire board by row, then col
     for (let rowId = 0; rowId < rows; rowId++) {
