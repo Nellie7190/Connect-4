@@ -61,13 +61,134 @@ function setColor() {
     let row = parseInt(coordinates[0]);
     let col = parseInt(coordinates[1]);
 
+
+
     board[row][col] = curPlay;
     let tile = this;
-    if (curPlay == redPlay) {
-        tile.classList.add('red');
-        curPlay = yelPlay;
-    } else {
-        tile.classList.add('yellow');
-        curPlay = redPlay
-    }
+
+    console.log(tile)
+    // if(board[row][col]){
+        // if(board[5][col].classList() == 'taken'){
+        //     console.log('this classList is taken')
+        // }
+        if (curPlay == redPlay) {
+            
+            if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
+                document.getElementById(`${0}-${col}`).classList.add('red', 'taken')
+                curPlay = yelPlay
+            } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+                document.getElementById(`${1}-${col}`).classList.add('red', 'taken')
+                curPlay = yelPlay
+            }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
+                document.getElementById(`${2}-${col}`).classList.add('red', 'taken')
+                curPlay = yelPlay
+            }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
+                document.getElementById(`${3}-${col}`).classList.add('red', 'taken')
+                curPlay = yelPlay
+            }  else if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
+                document.getElementById(`${4}-${col}`).classList.add('red', 'taken')
+                curPlay = yelPlay
+            } else {
+                    document.getElementById(`${5}-${col}`).classList.add('red', 'taken')
+                    curPlay = yelPlay
+                } 
+            } else {
+                if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${0}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+                    document.getElementById(`${1}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                    
+                }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
+                    console.log('???')
+                    document.getElementById(`${2}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
+                    console.log('???')
+                    document.getElementById(`${3}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                }  else if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
+                    document.getElementById(`${4}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                } else {
+                    document.getElementById(`${5}-${col}`).classList.add('yellow', 'taken')
+                    curPlay = redPlay
+                } 
+            }
+    
+
+
+
+            ///////////////////////////////////////////
+            // if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
+            //     console.log('second row')
+            //     document.getElementById(`${4}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
+            //     console.log('third row')
+            //     document.getElementById(`${3}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
+            //     console.log('???')
+            //     document.getElementById(`${2}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+            //     console.log('???')
+            //     document.getElementById(`${1}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // } else {
+            //         console.log('first row')
+            //         document.getElementById(`${5}-${col}`).classList.add('red', 'taken')
+            //         curPlay = yelPlay
+            //     } 
+        //     } else {
+        //     // tile.classList.add('yellow');
+        //     if (!document.getElementById(`${5}-${col}`).classList.contains('taken')){
+        //         document.getElementById(`${5}-${col}`).classList.add('yellow', 'taken')
+        //         curPlay = redPlay
+        //     } else if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
+        //         document.getElementById(`${4}-${col}`).classList.add('yellow', 'taken')
+        //         curPlay = redPlay
+                
+        //     }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
+        //         console.log('???')
+        //         document.getElementById(`${3}-${col}`).classList.add('yellow', 'taken')
+        //         curPlay = redPlay
+        //     }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
+        //         console.log('???')
+        //         document.getElementById(`${2}-${col}`).classList.add('yellow', 'taken')
+        //         curPlay = redPlay
+        //     }  else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+        //         console.log('???')
+        //         document.getElementById(`${1}-${col}`).classList.add('yellow', 'taken')
+        //         curPlay = redPlay
+        //     }
+        // }
+
+
+
+            // document.getElementById(`${5}-${col}`).classList.add('red', 'taken')
+            // // tile.classList.add('red');
+            // curPlay = yelPlay;
+            // if (document.getElementById(`${5}-${col}`).classList.contains('taken')){
+            //     document.getElementById(`${4}-${col}`).classList.add('red', 'taken')
+            // }
+        // } else {
+        //     // tile.classList.add('yellow');
+        //     document.getElementById(`${5}-${col}`).classList.add('yellow', 'taken')
+        //     curPlay = redPlay
+        // }
+    // } 
+
+
+    // if (curPlay == redPlay) {
+    //     document.getElementById(`${5}-${col}`).classList.add('red')
+    //     // tile.classList.add('red');
+    //     curPlay = yelPlay;
+    // } else {
+    //     // tile.classList.add('yellow');
+    //     document.getElementById(`${5}-${col}`).classList.add('yellow')
+    //     curPlay = redPlay
+    // }
 }
