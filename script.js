@@ -62,7 +62,6 @@ function setColor() {
     let col = parseInt(coordinates[1]);
 
 
-
     board[row][col] = curPlay;
     let tile = this;
 
@@ -72,11 +71,14 @@ function setColor() {
         //     console.log('this classList is taken')
         // }
         if (curPlay == redPlay) {
-            
+            //grab id of 2nd row , and checks if contains class of "taken"
             if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
+                //if it is taken, place piece in top row 
                 document.getElementById(`${0}-${col}`).classList.add('red', 'taken')
                 curPlay = yelPlay
+            //if not taken, move down to check if row 3 has class of taken
             } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+                //if it is taken, place piece in row 2
                 document.getElementById(`${1}-${col}`).classList.add('red', 'taken')
                 curPlay = yelPlay
             }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
@@ -93,10 +95,14 @@ function setColor() {
                     curPlay = yelPlay
                 } 
             } else {
+            //grab id of 2nd row , and checks if contains class of "taken"
                 if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
+                    //if it is taken, place piece in top row 
                     document.getElementById(`${0}-${col}`).classList.add('yellow', 'taken')
                     curPlay = redPlay
+                //if not taken, move down to check if row 3 has class of taken
                 } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+                    //if it is taken, place piece in row 2
                     document.getElementById(`${1}-${col}`).classList.add('yellow', 'taken')
                     curPlay = redPlay
                     
