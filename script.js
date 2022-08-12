@@ -50,6 +50,7 @@ const setGame = () => {
 
 //setting board to colors if game not over
 function setColor() {
+    // endGame ? curPlay = 'none' : null
     if (endGame){
         console.log('game over!!!');
         return;
@@ -70,29 +71,49 @@ function setColor() {
         // if(board[5][col].classList() == 'taken'){
         //     console.log('this classList is taken')
         // }
+        
         if (curPlay == redPlay) {
             //grab id of 2nd row , and checks if contains class of "taken"
-            if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
-                //if it is taken, place piece in top row 
-                document.getElementById(`${0}-${col}`).classList.add('red', 'taken')
-                curPlay = yelPlay
-            //if not taken, move down to check if row 3 has class of taken
-            } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
-                //if it is taken, place piece in row 2
-                document.getElementById(`${1}-${col}`).classList.add('red', 'taken')
-                curPlay = yelPlay
-            }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
-                document.getElementById(`${2}-${col}`).classList.add('red', 'taken')
-                curPlay = yelPlay
-            }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
-                document.getElementById(`${3}-${col}`).classList.add('red', 'taken')
-                curPlay = yelPlay
-            }  else if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
-                document.getElementById(`${4}-${col}`).classList.add('red', 'taken')
-                curPlay = yelPlay
-            } else {
-                    document.getElementById(`${5}-${col}`).classList.add('red', 'taken')
-                    curPlay = yelPlay
+            // if (document.getElementById(`${1}-${col}`).classList.contains('taken')){
+            //     //if it is taken, place piece in top row 
+            //     document.getElementById(`${0}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // //if not taken, move down to check if row 3 has class of taken
+            // } else if (document.getElementById(`${2}-${col}`).classList.contains('taken')) {
+            //     //if it is taken, place piece in row 2
+            //     document.getElementById(`${1}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${3}-${col}`).classList.contains('taken')) {
+            //     document.getElementById(`${2}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${4}-${col}`).classList.contains('taken')) {
+            //     document.getElementById(`${3}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // }  else if (document.getElementById(`${5}-${col}`).classList.contains('taken')) {
+            //     document.getElementById(`${4}-${col}`).classList.add('red', 'taken')
+            //     curPlay = yelPlay
+            // } else {
+            //         document.getElementById(`${5}-${col}`).classList.add('red', 'taken')
+            //         curPlay = yelPlay
+            //     } 
+                if (!document.getElementById(`${5}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${5}-${col}`).classList.add('red','taken');
+                    curPlay = yelPlay;
+                } else if (!document.getElementById(`${4}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${4}-${col}`).classList.add('red', 'taken');
+                    curPlay = yelPlay;
+                } else if (!document.getElementById(`${3}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${3}-${col}`).classList.add('red', 'taken');
+                    curPlay = yelPlay;
+                } else if (!document.getElementById(`${2}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${2}-${col}`).classList.add('red', 'taken');
+                    curPlay = yelPlay;
+                } else if (!document.getElementById(`${1}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${1}-${col}`).classList.add('red', 'taken');
+                    curPlay = yelPlay;
+                } else if (!document.getElementById(`${0}-${col}`).classList.contains('taken')){
+                    document.getElementById(`${0}-${col}`).classList.add('red', 'taken');
+                    curPlay = yelPlay;
                 } 
             } else {
             //grab id of 2nd row , and checks if contains class of "taken"
