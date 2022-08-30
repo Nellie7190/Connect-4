@@ -51,34 +51,36 @@ const setGame = () => {
 }
 
 const horizWin = () => {
-    console.log(board)
-    console.log(`first tile ${board[0][0]} second tile  ${board[0][1]}`)
-    //this is the where the horizontal win logic will go
+    //this is the horizontal win logic
     for(let row = 0; row < rows; row++) {
         for(let col = 0; col < columns; col++){
-            // if(board[row][col])
-            // console.log(document.getElementById(`${row}-${col}`).classList.contains('taken'))
-            
             if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row}-${col + 1}`).classList.contains('red') && document.getElementById(`${row}-${col + 2}`).classList.contains('red') && document.getElementById(`${row}-${col + 3}`).classList.contains('red')){
                 console.log("red wins!")
             }
-
             if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 3}`).classList.contains('yellow')){
                 console.log("yellow wins!")
             }
         }
     }
-    
 }
 
 const vertWin = () => {
     //this is the where the vertical win logic will go
-
+    for(let row = 0; row < rows; row++) {
+        for(let col = 0; col < columns; col++){
+            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col}`).classList.contains('red') && document.getElementById(`${row + 2}-${col}`).classList.contains('red') && document.getElementById(`${row + 3}-${col}`).classList.contains('red')){
+                console.log("red wins!")
+            }
+            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col}`).classList.contains('yellow')){
+                console.log("yellow wins!")
+            }
+        }
+    }
 }
 
 const diagWin = () => {
     //this is the where the horizontal win logic will go
-
+   
 }
 
 const oppDiagWin = () => {
