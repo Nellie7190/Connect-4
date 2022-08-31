@@ -112,49 +112,64 @@ const setGame = () => {
 // }
 
 const checkWin = () => {
-
-    for(let row = 0; row < rows; row++) {
-        for(let col = 0; col < columns; col++){
-            //this is the horizontal win logic
-            // console.log('something horizontal is happening')
-
+    //horizontal check
+    //start at row 0
+    for (let row = 0; row < rows; row++){
+        //go out 3 columns to check
+        for(let col = 0; col < columns - 3; col++){
+            console.log('something horizontal is happening')
             if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row}-${col + 1}`).classList.contains('red') && document.getElementById(`${row}-${col + 2}`).classList.contains('red') && document.getElementById(`${row}-${col + 3}`).classList.contains('red')){
-                console.log("red wins!")
-            }
+                            console.log("red wins!")
+                }
             if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 3}`).classList.contains('yellow')){
-                console.log("yellow wins!")
-            }
-
-            //checking vertical
-            // console.log('something vertical is happening')
-
-            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col}`).classList.contains('red') && document.getElementById(`${row + 2}-${col}`).classList.contains('red') && document.getElementById(`${row + 3}-${col}`).classList.contains('red')){
-                console.log("red wins!")
-            }
-            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col}`).classList.contains('yellow')){
-                console.log("yellow wins!")
-            }
-
-            // console.log('something diagonal is happening')
-            //this is the where the horizontal win logic will go
-            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('red')){
-                console.log("red wins!")
-            }
-            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('yellow')){
-                console.log("yellow wins!")
-            }
-
-            // console.log('something opposite diagonal is happening')
-            //this is the where the opposite diagonal win logic will go
-            /////////////////////////////////////////////////////////// NOT YET WORKING//////////////////////////////////////////////////////////////////////
-            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row - 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row - 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row - 3}-${col + 3}`).classList.contains('red')){
-                console.log("red wins!")
-            }
-            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row - 1}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row - 2}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row - 3}-${col + 3}`).classList.contains('yellow')){
                 console.log("yellow wins!")
             }
         }
     }
+
+    /////////////////////////////////////////////// SOMETHING DIFFERENT
+    // for(let row = 0; row < rows; row++) {
+    //     for(let col = 0; col < columns; col++){
+    //         //this is the horizontal win logic
+    //         // console.log('something horizontal is happening')
+
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row}-${col + 1}`).classList.contains('red') && document.getElementById(`${row}-${col + 2}`).classList.contains('red') && document.getElementById(`${row}-${col + 3}`).classList.contains('red')){
+    //             console.log("red wins!")
+    //         }
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row}-${col + 3}`).classList.contains('yellow')){
+    //             console.log("yellow wins!")
+    //         }
+
+    //         //checking vertical
+    //         // console.log('something vertical is happening')
+
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col}`).classList.contains('red') && document.getElementById(`${row + 2}-${col}`).classList.contains('red') && document.getElementById(`${row + 3}-${col}`).classList.contains('red')){
+    //             console.log("red wins!")
+    //         }
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col}`).classList.contains('yellow')){
+    //             console.log("yellow wins!")
+    //         }
+
+    //         // console.log('something diagonal is happening')
+    //         //this is the where the horizontal win logic will go
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('red')){
+    //             console.log("red wins!")
+    //         }
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('yellow')){
+    //             console.log("yellow wins!")
+    //         }
+
+    //         // console.log('something opposite diagonal is happening')
+    //         //this is the where the opposite diagonal win logic will go
+    //         /////////////////////////////////////////////////////////// NOT YET WORKING//////////////////////////////////////////////////////////////////////
+    //         if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col - 1}`).classList.contains('red') && document.getElementById(`${row = 2}-${col - 2}`).classList.contains('red') && document.getElementById(`${row + 3}-${col - 3}`).classList.contains('red')){
+    //             console.log("red wins!")
+    //         }
+    //         // if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col - 1}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col - 2}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col - 3}`).classList.contains('yellow')){
+    //         //     console.log("yellow wins!")
+    //         // }
+    //     }
+    // }
 }
 
 //setting board to colors if game not over
