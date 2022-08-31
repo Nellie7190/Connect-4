@@ -127,6 +127,19 @@ const checkWin = () => {
         }
     }
 
+    // checking vertical
+    for(let row = 0; row < rows - 3; row ++) {
+        for(let col = 0; col < columns; col++) {
+            console.log('something vertical is happening')
+            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col}`).classList.contains('red') && document.getElementById(`${row + 2}-${col}`).classList.contains('red') && document.getElementById(`${row + 3}-${col}`).classList.contains('red')){
+                console.log("red wins!")
+            }
+            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col}`).classList.contains('yellow')){
+                console.log("yellow wins!")
+            }
+        }
+    }
+
     /////////////////////////////////////////////// SOMETHING DIFFERENT
     // for(let row = 0; row < rows; row++) {
     //     for(let col = 0; col < columns; col++){
