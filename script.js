@@ -140,6 +140,20 @@ const checkWin = () => {
         }
     }
 
+    //checking diagonal
+    for(let row = 0; row < rows - 2; row++) {
+        for(let col = 0; col < columns - 3; col++) {
+            console.log('something diagonal is happening')
+            //this is the where the horizontal win logic will go
+            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('red')){
+                console.log("red wins!")
+            }
+            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('yellow')){
+                console.log("yellow wins!")
+            }
+        }
+    }
+
     /////////////////////////////////////////////// SOMETHING DIFFERENT
     // for(let row = 0; row < rows; row++) {
     //     for(let col = 0; col < columns; col++){
