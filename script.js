@@ -113,11 +113,11 @@ const setGame = () => {
 
 const checkWin = () => {
     //horizontal check
-    //start at row 0
+    // start at row 0
     for (let row = 0; row < rows; row++){
         //go out 3 columns to check
         for(let col = 0; col < columns - 3; col++){
-            console.log('something horizontal is happening')
+            // console.log('something horizontal is happening')
             if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row}-${col + 1}`).classList.contains('red') && document.getElementById(`${row}-${col + 2}`).classList.contains('red') && document.getElementById(`${row}-${col + 3}`).classList.contains('red')){
                             console.log("red wins!")
                 }
@@ -130,7 +130,7 @@ const checkWin = () => {
     // checking vertical
     for(let row = 0; row < rows - 3; row ++) {
         for(let col = 0; col < columns; col++) {
-            console.log('something vertical is happening')
+            // console.log('something vertical is happening')
             if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col}`).classList.contains('red') && document.getElementById(`${row + 2}-${col}`).classList.contains('red') && document.getElementById(`${row + 3}-${col}`).classList.contains('red')){
                 console.log("red wins!")
             }
@@ -141,9 +141,11 @@ const checkWin = () => {
     }
 
     //checking diagonal
-    for(let row = 0; row < rows - 2; row++) {
+    for(let row = 0; row < rows - 3; row++) {
         for(let col = 0; col < columns - 3; col++) {
-            console.log('something diagonal is happening')
+            // console.log(row, col)
+
+            // console.log('something diagonal is happening')
             //this is the where the horizontal win logic will go
             if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row + 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row + 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row + 3}-${col + 3}`).classList.contains('red')){
                 console.log("red wins!")
@@ -153,7 +155,22 @@ const checkWin = () => {
             }
         }
     }
-
+    
+    // crashing server
+    for(let row = 3; row < rows; row++) {
+        for(let col = 0; col < columns - 3; col++){
+            // console.log(row, col)
+            // console.log('something opposite diagonal is happening')
+            if (document.getElementById(`${row}-${col}`).classList.contains('red') && document.getElementById(`${row - 1}-${col + 1}`).classList.contains('red') && document.getElementById(`${row - 2}-${col + 2}`).classList.contains('red') && document.getElementById(`${row - 3}-${col + 3}`).classList.contains('red')){
+                console.log("red wins!")
+            }
+            if (document.getElementById(`${row}-${col}`).classList.contains('yellow') && document.getElementById(`${row - 1}-${col + 1}`).classList.contains('yellow') && document.getElementById(`${row - 2}-${col + 2}`).classList.contains('yellow') && document.getElementById(`${row - 3}-${col + 3}`).classList.contains('yellow')){
+                console.log("yellow wins!")
+            }
+        // }
+    // }
+        }
+    }
     /////////////////////////////////////////////// SOMETHING DIFFERENT
     // for(let row = 0; row < rows; row++) {
     //     for(let col = 0; col < columns; col++){
