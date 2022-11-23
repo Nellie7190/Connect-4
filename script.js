@@ -4,6 +4,10 @@ const yelPlay = "Y";
 let curPlay = redPlay;
 let winner;
 
+//Total wins
+let redCount = 0;
+let yelCount = 0;
+
 //endGame changes after win
 let endGame = false;
 let board;
@@ -19,6 +23,9 @@ const columns = 7;
 window.onload = function () {
     console.log('start of game!')
     setGame();
+    document.getElementById('red-wins').innerHTML = redCount
+    document.getElementById('yel-wins').innerHTML = yelCount
+
 }
 
 //populate tiles on board
@@ -54,12 +61,24 @@ const gameOver = () => {
     endGame = true;
     if(winner === redPlay){
         document.getElementById('winner').innerHTML = 'Red Wins!'
+        console.log('red won again', redCount)
+        document.getElementById('red-wins').innerHTML = redCount ++
+        console.log(redCount)
+
+        
         return 
     } else {
         document.getElementById('winner').innerHTML = 'Yellow Wins!'
+        console.log('yellow wins again', yelCount)
+        document.getElementById('yel-wins').innerHTML = yelCount++
+        console.log(yelCount)
         return 
     }
 }
+
+/*
+    Need to bring onload to JS side and take out of HTML so that I can try adding number of wins with Start Over button reload
+*/
 
 // const horizWin = () => {
 //     
@@ -132,7 +151,7 @@ const checkWin = () => {
             }
         }
     }
-}
+}   
 
 
 //setting board to colors if game not over
@@ -198,5 +217,5 @@ function setColor() {
 
 
     checkWin();
-}
 
+}
